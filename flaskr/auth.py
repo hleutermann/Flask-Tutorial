@@ -37,7 +37,7 @@ def register():
 
     return render_template('auth/register.html')
 
-@dp.route('/login', methods('GET', 'POST'))
+@bp.route('/login', methods('GET', 'POST'))
 def login():
     if request.method == 'POST':
         username = request.form['username']
@@ -87,4 +87,4 @@ def login_required(view):
         return view(**kwargs)
 
     return wrapped_view
-    
+
