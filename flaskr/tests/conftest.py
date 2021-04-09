@@ -37,7 +37,7 @@ def client(app):
 def runner(app):
     return app.test_cli_runner()
 
-        def __init__(self, client):
+    def __init__(self, client):
         self._client = client
 
     def login(self, username='test', password='test'):
