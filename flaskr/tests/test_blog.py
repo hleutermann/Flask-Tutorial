@@ -45,7 +45,7 @@ def test_exists_required(client, auth, path):
     auth.login()
     assert client.post(path).status_code == 404
 
-def test_created(client, auth, app):
+def test_create(client, auth, app):
     auth.login()
     assert client.get('/create').status_code == 200
     client.post('/create', data={'title': 'created', 'body': ''})
@@ -62,7 +62,8 @@ def test_update(client, auth, app):
 
     with app.app_context():
         db = get_db()
-        post = db.execute('SELECT * FROM post WHERE id = 1').fetchoneassert post ['title'] == 'updated'
+        post = db.execute('SELECT * FROM post WHERE id = 1').fetchone()
+        assert post ['title'] == 'updated'
 
 @pytest.mark.parametrize('path', (
     '/create',
