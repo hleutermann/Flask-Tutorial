@@ -33,7 +33,7 @@ def create():
         if error is not None:
             flash(error)
         else:
-            db_get_db()
+            db = get_db()
             db.execute(
                 'INSERT INTO post (title, body, author_id)'
                 ' VALUES (?, ?, ?)',
